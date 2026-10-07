@@ -5,7 +5,7 @@ import { icons } from "../components/sprites";
 export const metadata: Metadata = {
   title: "Home Renovation",
   description:
-    "Kitchen, bathroom, basement, and whole-home renovations from Level Craft Construction. Free estimates and clear, written pricing.",
+    "Home remodels, additions, repairs, and improvements in Orem and Utah County. Level Craft Construction is a licensed and insured Utah B100 general contractor.",
 };
 
 export default function HomeRenovationPage() {
@@ -13,21 +13,21 @@ export default function HomeRenovationPage() {
     <ServicePage
       eyebrow="Home Renovation"
       title="Level up your home."
-      lead="Kitchens, baths, basements, and whole-home remodels — planned carefully and built to last, so you can love the home you already have."
+      lead="Remodels, additions, repairs, and improvements across Utah County — planned carefully and built to last, so you can love the home you already have."
       icon={icons.hammer}
       offeringsTitle="Renovations We Build"
       offerings={[
-        { title: "Kitchen Remodels", text: "Layouts, cabinetry, counters, and lighting for a kitchen that works the way you cook." },
-        { title: "Bathroom Remodels", text: "From refreshed fixtures to full gut-and-rebuild bathrooms with tile and custom showers." },
-        { title: "Basement Finishing", text: "Turn unused space into a family room, guest suite, office, or game room." },
-        { title: "Whole-Home Renovations", text: "Coordinated updates across your home, managed as one project with one team." },
-        { title: "Flooring & Finish Carpentry", text: "Hardwood, LVP, and tile, plus trim, doors, and built-ins finished with care." },
-        { title: "Additions", text: "More room without the move — additions that blend seamlessly with your existing home." },
+        { title: "Remodels", text: "Kitchens, bathrooms, basements, and whole rooms, managed as one project with one team." },
+        { title: "Additions", text: "More room without the move — additions that blend with your existing home." },
+        { title: "Repairs & Improvements", text: "Fixes and upgrades large and small, done right the first time." },
+        { title: "Drywall & Paint", text: "Drywall hanging, finishing, and repairs, plus interior and exterior painting." },
+        { title: "Tile", text: "Tile floors, showers, and walls." },
+        { title: "Concrete", text: "Driveways, patios, walkways, and pads." },
       ]}
       highlightsTitle="Renovation Without the Headaches"
       highlights={[
-        { title: "Free In-Home Estimate", text: "We walk your space, talk through ideas, and give you an honest scope." },
-        { title: "Respect for Your Home", text: "Clean, protected work areas — we treat your home like our own." },
+        { title: "Licensed & Insured", text: "A licensed Utah B100 general contractor with general liability coverage." },
+        { title: "One Point of Contact", text: "We coordinate every trade, including plumbing, electrical, and HVAC, so you don't have to." },
         { title: "Clear Communication", text: "A written plan, a realistic schedule, and updates along the way." },
       ]}
       ctaTitle="Ready to renovate?"

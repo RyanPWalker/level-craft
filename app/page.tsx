@@ -3,40 +3,41 @@ import ContactCTA from "./components/ContactCTA";
 import GrassStrip from "./components/GrassStrip";
 import PixelArt, { type Sprite } from "./components/PixelArt";
 import { houseScene, icons } from "./components/sprites";
+import { site } from "./site";
 
 const services: { icon: Sprite; title: string; text: string; href?: string }[] = [
   {
-    icon: icons.house,
-    title: "New & Commercial Construction",
-    text: "Custom homes, offices, and retail spaces, managed from foundation to final walkthrough.",
+    icon: icons.building,
+    title: "Commercial Construction",
+    text: "Tenant improvements, office build-outs, and commercial remodels, managed start to finish.",
     href: "/commercial",
   },
   {
     icon: icons.hammer,
-    title: "Remodeling & Renovation",
-    text: "Kitchens, baths, basements, and whole-home renovations built to last.",
+    title: "Remodels & Additions",
+    text: "Home remodels, additions, repairs, and improvements, built to last.",
     href: "/home-renovation",
   },
   {
+    icon: icons.house,
+    title: "Framing & Carpentry",
+    text: "Wood and metal framing, plus doors, trim, and custom carpentry.",
+  },
+  {
     icon: icons.bricks,
-    title: "Additions",
-    text: "More room without the move — additions that blend seamlessly with your existing home.",
-  },
-  {
-    icon: icons.snowflake,
-    title: "Heating & Cooling",
-    text: "HVAC installation, replacement, and service to keep your home comfortable year-round.",
-    href: "/hvac",
-  },
-  {
-    icon: icons.wrench,
-    title: "Repairs & Restoration",
-    text: "Structural repairs, framing, and restoration work handled with care and precision.",
+    title: "Drywall, Paint & Tile",
+    text: "Drywall hanging, finishing, and repairs; interior and exterior painting; tile floors, showers, and walls.",
   },
   {
     icon: icons.pickaxe,
-    title: "Site Prep & Demolition",
-    text: "Clearing, excavation, and safe demolition to get your project off to a solid start.",
+    title: "Concrete",
+    text: "Driveways, patios, walkways, and pads.",
+  },
+  {
+    icon: icons.snowflake,
+    title: "HVAC, Plumbing & Electrical",
+    text: "Coordinated through qualified trades and managed as part of your project.",
+    href: "/hvac",
   },
 ];
 
@@ -48,9 +49,9 @@ const steps = [
 ];
 
 const values = [
+  { title: "Licensed & Insured", text: `${site.license.type}, fully insured with general liability coverage.` },
   { title: "Built Level", text: "Precise, square, and plumb. We sweat the details so you don't have to." },
-  { title: "Honest Pricing", text: "Clear, written estimates with no surprises along the way." },
-  { title: "On Schedule", text: "Realistic timelines and regular updates from start to finish." },
+  { title: "One Point of Contact", text: "Full general contracting. We coordinate every trade so you don't have to." },
 ];
 
 export default function Home() {
@@ -59,16 +60,20 @@ export default function Home() {
       <section className="hero">
         <div className="container hero-inner">
           <div className="hero-copy">
-            <p className="eyebrow">Construction · Renovation · HVAC</p>
+            <p className="eyebrow">{site.city}, {site.state} · {site.serviceArea}</p>
             <h1>Built level. Crafted to last.</h1>
             <p className="lead">
-              From new builds and remodels to heating and cooling, Level Craft Construction
-              builds it right — block by block.
+              Residential and commercial construction across {site.serviceArea}. From remodels
+              and additions to office build-outs, Level Craft builds it right — block by block.
             </p>
             <div className="hero-actions">
               <a href="#contact" className="btn">Get a Free Estimate</a>
               <a href="#services" className="btn btn-ghost">Our Services</a>
             </div>
+            <p className="hero-badge">
+              <PixelArt sprite={icons.check} scale={2} />
+              Licensed &amp; insured · {site.license.type}
+            </p>
           </div>
           <PixelArt sprite={houseScene} className="hero-art" />
         </div>
@@ -122,8 +127,9 @@ export default function Home() {
           <p className="eyebrow">About</p>
           <h2>Why Level Craft</h2>
           <p className="section-intro">
-            We&apos;re a family of builders who believe good work starts with a solid foundation —
-            in our structures and in our relationships with clients.
+            Level Craft is owned by {site.owner} and based in {site.city}, {site.state}. We
+            handle the whole job as your general contractor, from framing and drywall to tile,
+            concrete, and finish carpentry, and we coordinate the specialty trades.
           </p>
           <div className="grid grid-3">
             {values.map((v) => (

@@ -4,7 +4,7 @@ Guidance for AI coding agents working in this repository.
 
 ## Project
 
-Marketing website for **Level Craft Construction** ("Level Craft" for short), a residential and commercial construction company. It is a single-page Next.js site, statically exported and hosted on GitHub Pages.
+Marketing website for **Level Craft Construction** ("Level Craft" for short), a residential and commercial general contractor in Orem, Utah. It is a small multi-page Next.js site, statically exported and hosted on GitHub Pages.
 
 ## Commands
 
@@ -25,7 +25,7 @@ NEXT_PUBLIC_BASE_PATH=/level-craft yarn build
 
 ## Layout
 
-- `app/site.ts`: business contact details (phone, email) and the `servicePages` list that drives the nav and footer links
+- `app/site.ts`: business facts (legal name, owner, location, service area, license, phone, email) and the `servicePages` list that drives the nav and footer links
 - `app/layout.tsx`: root layout and site metadata (title, description)
 - `app/page.tsx`: the homepage. Content (services, process steps, values) lives in arrays at the top of the file.
 - `app/home-renovation/`, `app/hvac/`, `app/commercial/`: service landing pages, to be built out further for SEO and targeting. Each currently renders the shared `ServicePage` template with its own content and `metadata`. A page can diverge from the template when it needs to.
@@ -82,11 +82,23 @@ The owner named the company with his gamer kids in mind (think Minecraft), so th
 - Yarn's `npmMinimalAgeGate` (1 day) refuses package versions published within the last 24 hours. If an install fails with "quarantined", pin the previous version rather than disabling the gate.
 - CI runs `yarn install --immutable`, so commit `yarn.lock` whenever dependencies change.
 
+## Business facts
+
+These come from the owner. Keep the site's claims consistent with them.
+
+- Owner Joaquin Harris. Based in Orem, Utah, serving Utah County and surrounding areas.
+- Licensed Utah B100 General Contractor, insured, with general liability coverage.
+- Legal entity for the footer copyright: J & M Harris Enterprises, LLC. Branding is "Level Craft Construction".
+- In-house work: residential remodels, additions, repairs, and improvements; commercial tenant improvements, office build-outs, and remodels; wood and metal framing; drywall; interior and exterior painting; tile; concrete (driveways, patios, walkways, pads); carpentry; full project management.
+- **HVAC, plumbing, and electrical are coordinated through qualified trades, not done in-house.** Don't write copy implying Level Craft installs or repairs HVAC itself. Don't claim services not listed here, such as ground-up new construction, demolition, or 24/7 service.
+
 ## Content placeholders
 
-Business contact details live in `app/site.ts`. The phone number is real. Don't treat it as a secret, since it's meant to be shown on the page.
+Business details live in `app/site.ts`. The phone number is real. Don't treat it as a secret, since it's meant to be shown on the page.
 
 These are still placeholders, not real business info. Don't present them as real:
 
 - Email `info@levelcraft.com` in `app/site.ts`
-- Marketing copy for services and values is generic
+- License number (`site.license.number`, empty, so it's hidden until set)
+- Logo: the owner has an existing logo to provide. The grass-block logo is a stand-in.
+- Process steps and some value copy are generic

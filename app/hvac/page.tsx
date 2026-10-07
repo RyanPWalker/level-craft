@@ -5,32 +5,34 @@ import { icons } from "../components/sprites";
 export const metadata: Metadata = {
   title: "Heating & Cooling (HVAC)",
   description:
-    "HVAC installation, replacement, repair, and maintenance from Level Craft Construction. Keep your home comfortable year-round.",
+    "HVAC for remodels, additions, and commercial build-outs in Utah County. Level Craft Construction coordinates qualified HVAC, plumbing, and electrical trades as your general contractor.",
 };
 
+// HVAC, plumbing, and electrical work is coordinated through qualified trades, not
+// performed in-house. Keep the copy framed that way.
 export default function HvacPage() {
   return (
     <ServicePage
       eyebrow="Heating · Cooling"
       title="Comfort, crafted."
-      lead="Heating and cooling installation, replacement, and service to keep your home comfortable in every season."
+      lead="Heating and cooling for your remodel, addition, or build-out. We coordinate qualified HVAC trades and manage the work as part of your project, with one schedule and one point of contact."
       icon={icons.snowflake}
-      offeringsTitle="HVAC Services"
+      offeringsTitle="HVAC on Your Project"
       offerings={[
-        { title: "AC Installation & Replacement", text: "Properly sized, efficient cooling systems installed right the first time." },
-        { title: "Furnaces & Heating", text: "Furnace installation, replacement, and repair to keep you warm all winter." },
-        { title: "Heat Pumps", text: "Efficient all-in-one heating and cooling for lower energy bills." },
-        { title: "Ductwork", text: "New ductwork, repairs, and sealing for better airflow and comfort." },
-        { title: "Maintenance & Tune-Ups", text: "Seasonal checkups that catch problems early and extend system life." },
-        { title: "Repairs", text: "Diagnosis and repair to get your system running again." },
+        { title: "Remodels & Additions", text: "New or extended heating and cooling for added and reworked spaces, planned in from the start." },
+        { title: "Commercial Build-Outs", text: "HVAC for tenant improvements and office build-outs, coordinated with the rest of the build." },
+        { title: "Framing for Ductwork", text: "Soffits, chases, and framing to route ducts cleanly, built by our own crew." },
+        { title: "Patch & Finish", text: "Drywall, paint, and trim repairs after equipment or duct work, so nothing is left unfinished." },
+        { title: "Plumbing & Electrical", text: "Qualified plumbing and electrical trades coordinated alongside HVAC on the same schedule." },
+        { title: "Project Management", text: "We schedule the trades, keep work moving, and keep you updated." },
       ]}
-      highlightsTitle="HVAC Done Right"
+      highlightsTitle="One Contractor, Every Trade"
       highlights={[
-        { title: "Right-Sized Systems", text: "We size equipment to your home, not to a sales quota." },
-        { title: "Upfront Pricing", text: "Clear, written quotes before any work begins." },
-        { title: "Builder's Perspective", text: "As a construction company, we handle the framing, drywall, and finish work HVAC jobs sometimes need." },
+        { title: "Qualified Trades", text: "HVAC, plumbing, and electrical work is done by qualified trades we coordinate." },
+        { title: "Licensed & Insured", text: "A licensed Utah B100 general contractor, fully insured, managing the whole job." },
+        { title: "Builder's Perspective", text: "We handle the framing, drywall, and finish work HVAC jobs often need." },
       ]}
-      ctaTitle="Need heating or cooling help?"
+      ctaTitle="Planning heating or cooling work?"
     />
   );
 }

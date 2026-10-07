@@ -21,7 +21,16 @@ export default function SiteFooter() {
           ))}
           <a href={site.phone.href}>{site.phone.display}</a>
         </nav>
-        <p>&copy; {year} {site.name}. All rights reserved.</p>
+      </div>
+      <div className="container footer-legal">
+        <p>
+          {site.name} · {site.city}, {site.state} · Serving {site.serviceArea} and surrounding areas
+        </p>
+        <p>
+          Licensed &amp; insured {site.license.type}
+          {site.license.number && <> · License #{site.license.number}</>}
+        </p>
+        <p>&copy; {year} {site.legalName}. All rights reserved.</p>
       </div>
     </footer>
   );
