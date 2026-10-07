@@ -25,9 +25,11 @@ NEXT_PUBLIC_BASE_PATH=/level-craft yarn build
 
 ## Layout
 
-- `app/site.ts`: business contact details (phone, email)
+- `app/site.ts`: business contact details (phone, email) and the `servicePages` list that drives the nav and footer links
 - `app/layout.tsx`: root layout and site metadata (title, description)
-- `app/page.tsx`: the whole homepage. Content (services, process steps, values) lives in arrays at the top of the file.
+- `app/page.tsx`: the homepage. Content (services, process steps, values) lives in arrays at the top of the file.
+- `app/home-renovation/`, `app/hvac/`, `app/commercial/`: service landing pages, to be built out further for SEO and targeting. Each currently renders the shared `ServicePage` template with its own content and `metadata`. A page can diverge from the template when it needs to.
+- `app/components/SiteHeader.tsx`, `NavLinks.tsx` (client component, highlights the current page), `SiteFooter.tsx`, `ContactCTA.tsx`: shared across pages. The header and footer are rendered in `app/layout.tsx`.
 - `app/globals.css`: all styles. Plain CSS, with design tokens as custom properties on `:root`.
 - `app/components/PixelArt.tsx`: renders a pixel-art `Sprite` (rows of characters plus a palette) as a crisp SVG
 - `app/components/sprites.ts`: all pixel art (grass block, hero construction scene, service icons)
@@ -54,13 +56,13 @@ The site is served from `/level-craft/`, not `/`. `basePath` is set from `NEXT_P
 
 - Use `next/link` for internal page links. It applies `basePath` automatically.
 - Plain `<a href="/...">`, CSS `url(/...)`, and raw `<img src="/...">` do **not** get the prefix and will break in production. Prefix them with `process.env.NEXT_PUBLIC_BASE_PATH`, or use relative/hash links.
-- Hash links (`#services`) are fine.
+- Hash links (`#services`) are fine. `#contact` works on every page because each page renders `ContactCTA`.
 
 ## Design theme
 
 The owner named the company with his gamer kids in mind (think Minecraft), so the site has a **light** pixel-art/gaming flavor. It is still a professional site whose job is to win construction, renovation, and HVAC customers. Keep the gaming touches as accents, never at the expense of clarity or credibility.
 
-- Fonts: **Jersey 10** (`--font-display`) for h1/h2 and buttons; **Silkscreen** (`--font-label`) for the logo, eyebrows, and small uppercase badges; **Inter** (`--font-sans`) for everything else, including h3 and body copy. Don't put long text in pixel fonts.
+- Fonts: **Jersey 10** (`--font-display`) for h1/h2 and buttons; **Silkscreen** (`--font-label`) for the logo, eyebrows, and small uppercase badges; **Inter** (`--font-sans`) for everything else, including h3 and body copy. Don't put long text in pixel fonts. Silkscreen renders `&` poorly, so avoid it in eyebrows.
 - Avoid Pixelify Sans and similar fonts. Its "C" reads as "O" and its "5" as "S".
 - New pixel art goes in `sprites.ts` and renders with `<PixelArt>`. Don't use raster images. Keep icons around 12×12.
 - Gaming nods in use: hero scene (tower crane lowering a plank block, hard-hat worker on the roof of a pixel house), grass-block logo and dividers, beveled "menu" buttons, hard-offset card shadows, "Level N" process steps with XP bars. Add new ones sparingly.

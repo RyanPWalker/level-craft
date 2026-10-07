@@ -8,3 +8,10 @@ export const site = {
   // TODO: placeholder — replace with the real business email.
   email: "info@levelcraft.com",
 };
+
+// Service landing pages, used for the nav, footer, and home page links.
+export const servicePages = [
+  { href: "/home-renovation", navLabel: "Renovation", title: "Home Renovation" },
+  { href: "/hvac", navLabel: "HVAC", title: "Heating & Cooling" },
+  { href: "/commercial", navLabel: "Commercial", title: "Commercial Construction" },
+];

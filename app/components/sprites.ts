@@ -109,6 +109,22 @@ export const icons = {
       "...hhhh.....",
     ],
   },
+  building: {
+    palette: { R: "#4a5260", C: "#8593a3", c: "#6b7888", B: "#8fd3f0", D: "#3a4048" },
+    art: [
+      "RRRRRRRRRRRR",
+      ".CCCCCCCCCC.",
+      ".CBBcBBcBBC.",
+      ".CBBcBBcBBC.",
+      ".CccccccccC.",
+      ".CBBcBBcBBC.",
+      ".CBBcBBcBBC.",
+      ".CccccccccC.",
+      ".CBBcDDcBBC.",
+      ".CBBcDDcBBC.",
+      ".CcccDDcccC.",
+    ],
+  },
   bricks: {
     palette: { B: "#b5533c", b: "#8e3e2c", M: "#d9cfc4" },
     art: [
