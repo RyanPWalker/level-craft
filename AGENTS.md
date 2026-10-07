@@ -29,7 +29,7 @@ NEXT_PUBLIC_BASE_PATH=/level-craft yarn build
 - `app/page.tsx`: the whole homepage. Content (services, process steps, values) lives in arrays at the top of the file.
 - `app/globals.css`: all styles. Plain CSS, with design tokens as custom properties on `:root`.
 - `app/components/PixelArt.tsx`: renders a pixel-art `Sprite` (rows of characters plus a palette) as a crisp SVG
-- `app/components/sprites.ts`: all pixel art (grass block, hero house scene, service icons)
+- `app/components/sprites.ts`: all pixel art (grass block, hero construction scene, service icons)
 - `app/components/GrassStrip.tsx`: full-width repeating grass-block divider
 - `app/icon.svg`: favicon (the grass block)
 - `public/`: static assets, copied as-is into `out/`
@@ -62,7 +62,7 @@ The owner named the company with his gamer kids in mind (think Minecraft), so th
 - Fonts: **Jersey 10** (`--font-display`) for h1/h2 and buttons; **Silkscreen** (`--font-label`) for the logo, eyebrows, and small uppercase badges; **Inter** (`--font-sans`) for everything else, including h3 and body copy. Don't put long text in pixel fonts.
 - Avoid Pixelify Sans and similar fonts. Its "C" reads as "O" and its "5" as "S".
 - New pixel art goes in `sprites.ts` and renders with `<PixelArt>`. Don't use raster images. Keep icons around 12×12.
-- Gaming nods in use: grass-block logo and dividers, beveled "menu" buttons, hard-offset card shadows, "Level N" process steps with XP bars. Add new ones sparingly.
+- Gaming nods in use: hero scene (tower crane lowering a plank block, hard-hat worker on the roof of a pixel house), grass-block logo and dividers, beveled "menu" buttons, hard-offset card shadows, "Level N" process steps with XP bars. Add new ones sparingly.
 - Colors: dark navy (`--dark`), grass green (`--grass`, used for primary actions), gold (`--gold`) as a small highlight.
 
 ## Conventions
