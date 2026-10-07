@@ -1,6 +1,7 @@
 import GrassStrip from "./components/GrassStrip";
 import PixelArt from "./components/PixelArt";
 import { grassBlock, houseScene, icons } from "./components/sprites";
+import { site } from "./site";
 
 const services = [
   {
@@ -155,8 +156,8 @@ export default function Home() {
               Tell us what you have in mind and we&apos;ll get back to you with a free estimate.
             </p>
             <div className="contact-info">
-              <a href="tel:+15555555555" className="btn">(555) 555-5555</a>
-              <a href="mailto:info@levelcraft.com" className="btn btn-ghost">info@levelcraft.com</a>
+              <a href={site.phone.href} className="btn">{site.phone.display}</a>
+              <a href={`mailto:${site.email}`} className="btn btn-ghost">{site.email}</a>
             </div>
           </div>
         </section>
@@ -169,7 +170,7 @@ export default function Home() {
             <PixelArt sprite={grassBlock} scale={2} />
             Level Craft
           </span>
-          <p>&copy; {year} Level Craft Construction. All rights reserved.</p>
+          <p>&copy; {year} {site.name}. All rights reserved.</p>
         </div>
       </footer>
     </>

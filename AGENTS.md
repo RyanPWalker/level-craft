@@ -25,6 +25,7 @@ NEXT_PUBLIC_BASE_PATH=/level-craft yarn build
 
 ## Layout
 
+- `app/site.ts`: business contact details (phone, email)
 - `app/layout.tsx`: root layout and site metadata (title, description)
 - `app/page.tsx`: the whole homepage. Content (services, process steps, values) lives in arrays at the top of the file.
 - `app/globals.css`: all styles. Plain CSS, with design tokens as custom properties on `:root`.
@@ -81,7 +82,9 @@ The owner named the company with his gamer kids in mind (think Minecraft), so th
 
 ## Content placeholders
 
-These are placeholders, not real business info. Don't present them as real:
+Business contact details live in `app/site.ts`. The phone number is real. Don't treat it as a secret, since it's meant to be shown on the page.
 
-- Phone `(555) 555-5555` and email `info@levelcraft.com` in `app/page.tsx`
+These are still placeholders, not real business info. Don't present them as real:
+
+- Email `info@levelcraft.com` in `app/site.ts`
 - Marketing copy for services and values is generic
