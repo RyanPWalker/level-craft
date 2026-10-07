@@ -20,9 +20,12 @@ There is no test suite or linter yet. `yarn build` (which type-checks) is the ve
 ## Layout
 
 - `app/site.ts`: business facts (legal name, owner, location, service area, license, phone, email) and the `servicePages` list that drives the nav and footer links
-- `app/layout.tsx`: root layout and site metadata (title, description)
+- `app/layout.tsx`: root layout, default metadata (`metadataBase`, title template), and the business JSON-LD
+- `app/seo.tsx`: SEO helpers. `pageMetadata()` builds each page's title, description, canonical URL, and Open Graph/Twitter tags. `JsonLd` renders structured data.
+- `app/sitemap.ts`, `app/robots.ts`: generate `sitemap.xml` and `robots.txt` at build time. The sitemap lists the home page plus `servicePages`.
+- `app/og.png/route.tsx`: generates the social share image (`/og.png`) at build time
 - `app/page.tsx`: the homepage. Content (services, process steps, values) lives in arrays at the top of the file.
-- `app/home-renovation/`, `app/hvac/`, `app/commercial/`: service landing pages, to be built out further for SEO and targeting. Each currently renders the shared `ServicePage` template with its own content and `metadata`. A page can diverge from the template when it needs to.
+- `app/home-renovation/`, `app/hvac/`, `app/commercial/`: service landing pages, to be built out further for SEO and targeting. Each currently renders the shared `ServicePage` template with its own content and `metadata`. A page defines a `page` object (path with trailing slash, title, description), passes it to `pageMetadata()` and `ServicePage`, which emits `Service` and `BreadcrumbList` JSON-LD. A page can diverge from the template when it needs to.
 - `app/components/SiteHeader.tsx`, `NavLinks.tsx` (client component, highlights the current page), `SiteFooter.tsx`, `ContactCTA.tsx`: shared across pages. The header and footer are rendered in `app/layout.tsx`.
 - `app/globals.css`: all styles. Plain CSS, with design tokens as custom properties on `:root`.
 - `app/components/PixelArt.tsx`: renders a pixel-art `Sprite` (rows of characters plus a palette) as a crisp SVG
@@ -50,6 +53,12 @@ The site is served from the root of the custom domain `levelcraft.co` (set by `p
 
 - Use `next/link` for internal page links.
 - Hash links (`#services`) are fine. `#contact` works on every page because each page renders `ContactCTA`.
+
+### SEO
+
+- Every page exports `metadata` built with `pageMetadata()`, so it gets a canonical URL and share tags. New pages also go in `servicePages` (nav, footer, sitemap) when they are service pages.
+- Titles name the service and location ("... in Utah County"). Descriptions stay under about 155 characters.
+- Keep structured data truthful. Leave placeholder details (the email, an empty license number) out of JSON-LD.
 
 ## Design theme
 

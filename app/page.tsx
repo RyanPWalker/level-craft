@@ -1,9 +1,24 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import ContactCTA from "./components/ContactCTA";
 import GrassStrip from "./components/GrassStrip";
 import PixelArt, { type Sprite } from "./components/PixelArt";
 import { houseScene, icons } from "./components/sprites";
+import { pageMetadata } from "./seo";
 import { site } from "./site";
+
+const homeTitle = `${site.name} | General Contractor in ${site.city}, ${site.state}`;
+
+export const metadata: Metadata = {
+  ...pageMetadata({
+    path: "/",
+    title: homeTitle,
+    description:
+      "Licensed and insured general contractor in Orem, Utah. Home remodels, additions, and commercial tenant improvements across Utah County. Call for a free estimate.",
+  }),
+  // Already includes the brand, so skip the "%s | Level Craft Construction" template.
+  title: { absolute: homeTitle },
+};
 
 const services: { icon: Sprite; title: string; text: string; href?: string }[] = [
   {

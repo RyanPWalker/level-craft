@@ -1,16 +1,21 @@
 import type { Metadata } from "next";
 import ServicePage from "../components/ServicePage";
 import { icons } from "../components/sprites";
+import { pageMetadata } from "../seo";
 
-export const metadata: Metadata = {
-  title: "Home Renovation",
+const page = {
+  path: "/home-renovation/",
+  title: "Home Remodeling & Additions in Utah County",
   description:
-    "Home remodels, additions, repairs, and improvements in Orem and Utah County. Level Craft Construction is a licensed and insured Utah B100 general contractor.",
+    "Home remodels, additions, repairs, and improvements in Orem and across Utah County, built by a licensed, insured Utah B100 general contractor.",
 };
+
+export const metadata: Metadata = pageMetadata(page);
 
 export default function HomeRenovationPage() {
   return (
     <ServicePage
+      page={page}
       eyebrow="Home Renovation"
       title="Level up your home."
       lead="Remodels, additions, repairs, and improvements across Utah County — planned carefully and built to last, so you can love the home you already have."

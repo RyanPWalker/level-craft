@@ -2,8 +2,12 @@ import ContactCTA from "./ContactCTA";
 import GrassStrip from "./GrassStrip";
 import PixelArt, { type Sprite } from "./PixelArt";
 import { icons } from "./sprites";
+import { businessId, JsonLd } from "../seo";
+import { site } from "../site";
 
 export type ServicePageProps = {
+  /** The page's path, title, and description, shared with its metadata. Used for structured data. */
+  page: { path: string; title: string; description: string };
   eyebrow: string;
   title: string;
   lead: string;
@@ -17,8 +21,30 @@ export type ServicePageProps = {
 
 /** Shared layout for service landing pages. Pages can diverge from this as they grow. */
 export default function ServicePage(props: ServicePageProps) {
+  const url = `${site.url}${props.page.path}`;
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: props.page.title,
+    description: props.page.description,
+    url,
+    serviceType: props.offerings.map((o) => o.title),
+    provider: { "@id": businessId },
+    areaServed: { "@type": "AdministrativeArea", name: `${site.serviceArea}, UT` },
+  };
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${site.url}/` },
+      { "@type": "ListItem", position: 2, name: props.page.title, item: url },
+    ],
+  };
+
   return (
     <main>
+      <JsonLd data={serviceJsonLd} />
+      <JsonLd data={breadcrumbJsonLd} />
       <section className="hero page-hero">
         <div className="container hero-inner">
           <div className="hero-copy">

@@ -1,16 +1,21 @@
 import type { Metadata } from "next";
 import ServicePage from "../components/ServicePage";
 import { icons } from "../components/sprites";
+import { pageMetadata } from "../seo";
 
-export const metadata: Metadata = {
-  title: "Commercial Construction",
+const page = {
+  path: "/commercial/",
+  title: "Commercial Contractor in Utah County",
   description:
-    "Tenant improvements, office build-outs, and commercial remodels in Utah County. Level Craft Construction is a licensed and insured Utah B100 general contractor.",
+    "Tenant improvements, office build-outs, and commercial remodels in Orem and Utah County from a licensed, insured Utah B100 general contractor.",
 };
+
+export const metadata: Metadata = pageMetadata(page);
 
 export default function CommercialPage() {
   return (
     <ServicePage
+      page={page}
       eyebrow="Commercial Construction"
       title="Commercial builds, done level."
       lead="Tenant improvements, office build-outs, and remodels for businesses across Utah County — managed carefully so you can open on time."

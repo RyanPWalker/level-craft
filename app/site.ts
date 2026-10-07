@@ -1,6 +1,8 @@
 // Business details shown on the site. These are public by design.
 export const site = {
   name: "Level Craft Construction",
+  // Canonical origin, used for absolute URLs in metadata, the sitemap, and structured data.
+  url: "https://levelcraft.co",
   legalName: "J & M Harris Enterprises, LLC",
   owner: "Joaquin Harris",
   city: "Orem",

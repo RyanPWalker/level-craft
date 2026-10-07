@@ -1,18 +1,23 @@
 import type { Metadata } from "next";
 import ServicePage from "../components/ServicePage";
 import { icons } from "../components/sprites";
+import { pageMetadata } from "../seo";
 
-export const metadata: Metadata = {
-  title: "Heating & Cooling (HVAC)",
+const page = {
+  path: "/hvac/",
+  title: "HVAC for Remodels & Build-Outs in Utah County",
   description:
-    "HVAC for remodels, additions, and commercial build-outs in Utah County. Level Craft Construction coordinates qualified HVAC, plumbing, and electrical trades as your general contractor.",
+    "Heating and cooling for remodels, additions, and build-outs in Utah County. We coordinate qualified HVAC, plumbing, and electrical trades on your project.",
 };
+
+export const metadata: Metadata = pageMetadata(page);
 
 // HVAC, plumbing, and electrical work is coordinated through qualified trades, not
 // performed in-house. Keep the copy framed that way.
 export default function HvacPage() {
   return (
     <ServicePage
+      page={page}
       eyebrow="Heating · Cooling"
       title="Comfort, crafted."
       lead="Heating and cooling for your remodel, addition, or build-out. We coordinate qualified HVAC trades and manage the work as part of your project, with one schedule and one point of contact."
