@@ -17,4 +17,4 @@ Pushing to `master` runs `.github/workflows/deploy.yml`, which builds the site a
 
 One-time setup: in the repo on GitHub, go to **Settings → Pages** and set **Source** to **GitHub Actions**.
 
-The site is served at `https://<user>.github.io/level-craft/`. If you add a custom domain, remove `NEXT_PUBLIC_BASE_PATH` from the workflow.
+The site is served at https://levelcraft.co. The custom domain is set by `public/CNAME` (copied into the build output) and must also be set under **Settings → Pages → Custom domain**.

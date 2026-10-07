@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { servicePages } from "../site";
 
 export default function NavLinks() {
-  // usePathname excludes basePath; with trailingSlash it may end in "/".
+  // With trailingSlash the pathname may end in "/".
   const pathname = usePathname().replace(/\/$/, "");
 
   return (

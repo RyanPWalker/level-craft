@@ -17,12 +17,6 @@ yarn start     # serve ./out locally
 
 There is no test suite or linter yet. `yarn build` (which type-checks) is the verification step.
 
-To reproduce the production build with the GitHub Pages path prefix:
-
-```bash
-NEXT_PUBLIC_BASE_PATH=/level-craft yarn build
-```
-
 ## Layout
 
 - `app/site.ts`: business facts (legal name, owner, location, service area, license, phone, email) and the `servicePages` list that drives the nav and footer links
@@ -35,8 +29,8 @@ NEXT_PUBLIC_BASE_PATH=/level-craft yarn build
 - `app/components/sprites.ts`: all pixel art (grass block, hero construction scene, service icons)
 - `app/components/GrassStrip.tsx`: full-width repeating grass-block divider
 - `app/icon.svg`: favicon (the grass block)
-- `public/`: static assets, copied as-is into `out/`
-- `next.config.ts`: static export config and `basePath`
+- `public/`: static assets, copied as-is into `out/`. Includes `CNAME` (custom domain `levelcraft.co`).
+- `next.config.ts`: static export config
 - `.github/workflows/deploy.yml`: builds and deploys to GitHub Pages on push to `master`
 
 ## Hard constraints: static export on GitHub Pages
@@ -50,12 +44,11 @@ NEXT_PUBLIC_BASE_PATH=/level-craft yarn build
 
 Forms must post to a third-party service (e.g. Formspree) or use `mailto:`.
 
-### Base path
+### Domain
 
-The site is served from `/level-craft/`, not `/`. `basePath` is set from `NEXT_PUBLIC_BASE_PATH` (empty locally).
+The site is served from the root of the custom domain `levelcraft.co` (set by `public/CNAME`), so there is no `basePath`. Root-relative URLs (`/hvac/`, `url(/...)`) work as-is.
 
-- Use `next/link` for internal page links. It applies `basePath` automatically.
-- Plain `<a href="/...">`, CSS `url(/...)`, and raw `<img src="/...">` do **not** get the prefix and will break in production. Prefix them with `process.env.NEXT_PUBLIC_BASE_PATH`, or use relative/hash links.
+- Use `next/link` for internal page links.
 - Hash links (`#services`) are fine. `#contact` works on every page because each page renders `ContactCTA`.
 
 ## Design theme

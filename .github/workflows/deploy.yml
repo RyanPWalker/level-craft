@@ -27,9 +27,6 @@ jobs:
       - uses: actions/configure-pages@v5
       - run: yarn install --immutable
       - run: yarn build
-        env:
-          # Project site is served from /<repo-name>. Remove this if you add a custom domain.
-          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
