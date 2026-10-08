@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ContactCTA from "./ContactCTA";
 import GrassStrip from "./GrassStrip";
 import PixelArt, { type Sprite } from "./PixelArt";
@@ -52,7 +53,7 @@ export default function ServicePage(props: ServicePageProps) {
             <h1>{props.title}</h1>
             <p className="lead">{props.lead}</p>
             <div className="hero-actions">
-              <a href="#contact" className="btn">Get a Free Estimate</a>
+              <Link href="/contact" className="btn">Get a Free Estimate</Link>
             </div>
           </div>
           <PixelArt sprite={props.icon} className="page-hero-art" />

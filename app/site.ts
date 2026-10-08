@@ -17,6 +17,8 @@ export const site = {
     display: "(575) 749-2589",
     href: "tel:+15757492589",
   },
+  // Formspree form that receives contact-page submissions (forwards to the account's email).
+  formEndpoint: "https://formspree.io/f/xqpeqboo",
   // TODO: placeholder — replace with the real business email.
   email: "info@levelcraft.com",
 };

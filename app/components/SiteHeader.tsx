@@ -11,7 +11,7 @@ export default function SiteHeader() {
           <PixelArt sprite={grassBlock} scale={2} />
           Level Craft
         </Link>
-        <a href="#contact" className="btn btn-small nav-cta">Get a Quote</a>
+        <Link href="/contact" className="btn btn-small nav-cta">Get a Quote</Link>
         <NavLinks />
       </div>
     </header>

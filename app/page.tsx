@@ -82,7 +82,7 @@ export default function Home() {
               and additions to office build-outs, Level Craft builds it right — block by block.
             </p>
             <div className="hero-actions">
-              <a href="#contact" className="btn">Get a Free Estimate</a>
+              <Link href="/contact" className="btn">Get a Free Estimate</Link>
               <a href="#services" className="btn btn-ghost">Our Services</a>
             </div>
             <p className="hero-badge">

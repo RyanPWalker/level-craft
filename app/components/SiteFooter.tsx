@@ -19,6 +19,7 @@ export default function SiteFooter() {
           {servicePages.map((page) => (
             <Link key={page.href} href={page.href}>{page.title}</Link>
           ))}
+          <Link href="/contact">Contact</Link>
           <a href={site.phone.href}>{site.phone.display}</a>
         </nav>
       </div>

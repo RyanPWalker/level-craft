@@ -22,8 +22,9 @@ There is no test suite or linter yet. `yarn build` (which type-checks) is the ve
 - `app/site.ts`: business facts (legal name, owner, location, service area, license, phone, email) and the `servicePages` list that drives the nav and footer links
 - `app/layout.tsx`: root layout, default metadata (`metadataBase`, title template), and the business JSON-LD
 - `app/seo.tsx`: SEO helpers. `pageMetadata()` builds each page's title, description, canonical URL, and Open Graph/Twitter tags. `JsonLd` renders structured data.
-- `app/sitemap.ts`, `app/robots.ts`: generate `sitemap.xml` and `robots.txt` at build time. The sitemap lists the home page plus `servicePages`.
+- `app/sitemap.ts`, `app/robots.ts`: generate `sitemap.xml` and `robots.txt` at build time. The sitemap lists the home page, the contact page, and `servicePages`.
 - `app/og.png/route.tsx`: generates the social share image (`/og.png`) at build time
+- `app/contact/`: contact page with the estimate request form (`components/ContactForm.tsx`, a client component). The form posts to Formspree (`site.formEndpoint`); name and phone are required, email and message optional. The estimate buttons across the site link here.
 - `app/page.tsx`: the homepage. Content (services, process steps, values) lives in arrays at the top of the file.
 - `app/home-renovation/`, `app/hvac/`, `app/commercial/`: service landing pages, to be built out further for SEO and targeting. Each currently renders the shared `ServicePage` template with its own content and `metadata`. A page defines a `page` object (path with trailing slash, title, description), passes it to `pageMetadata()` and `ServicePage`, which emits `Service` and `BreadcrumbList` JSON-LD. A page can diverge from the template when it needs to.
 - `app/components/SiteHeader.tsx`, `NavLinks.tsx` (client component, highlights the current page), `SiteFooter.tsx`, `ContactCTA.tsx`: shared across pages. The header and footer are rendered in `app/layout.tsx`.
@@ -45,14 +46,14 @@ There is no test suite or linter yet. `yarn build` (which type-checks) is the ve
 - Dynamic routes without `generateStaticParams`
 - `next/image` optimization (it's disabled through `images.unoptimized`)
 
-Forms must post to a third-party service (e.g. Formspree) or use `mailto:`.
+Forms must post to a third-party service or use `mailto:`. The site uses Formspree (`site.formEndpoint`).
 
 ### Domain
 
 The site is served from the root of the custom domain `levelcraft.co` (set by `public/CNAME`), so there is no `basePath`. Root-relative URLs (`/hvac/`, `url(/...)`) work as-is.
 
 - Use `next/link` for internal page links.
-- Hash links (`#services`) are fine. `#contact` works on every page because each page renders `ContactCTA`.
+- Hash links (`#services`) are fine. `#contact` works on every page: content pages render `ContactCTA`, and the contact page puts it on the form section.
 
 ### SEO
 
