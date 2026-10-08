@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     path: "/",
     title: homeTitle,
     description:
-      "Licensed and insured general contractor in Orem, Utah. Home remodels, additions, and commercial tenant improvements across Utah. Call for a free estimate.",
+      "Licensed, insured general contractor in Orem, Utah. Remodels, additions, and commercial tenant improvements in Utah County and across Utah. Free estimates.",
   }),
   // Already includes the brand, so skip the "%s | Level Craft Construction" template.
   title: { absolute: homeTitle },

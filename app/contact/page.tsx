@@ -8,9 +8,9 @@ import { site } from "../site";
 
 const page = {
   path: "/contact/",
-  title: "Request a Free Estimate in Utah",
+  title: "Request a Free Estimate in Utah County",
   description:
-    "Contact Level Craft Construction in Orem, Utah. Request a free estimate for a remodel, addition, concrete, or commercial build-out anywhere in Utah.",
+    "Contact Level Craft Construction in Orem, Utah. Free estimates for remodels, additions, and commercial build-outs in Utah County and across Utah.",
 };
 
 export const metadata: Metadata = pageMetadata(page);
@@ -58,7 +58,7 @@ export default function ContactPage() {
             <h2 className="contact-heading">Prefer to call?</h2>
             <a href={site.phone.href} className="btn">{site.phone.display}</a>
             <p className="contact-area">
-              Based in {site.city}, serving all of {site.serviceArea}. Have a project outside{" "}
+              Based in {site.city}, serving {site.county} and all of {site.serviceArea}. Have a project outside{" "}
               {site.serviceArea}? Ask us. We consider out-of-state work case by case.
             </p>
             <h2 className="contact-heading">What happens next</h2>

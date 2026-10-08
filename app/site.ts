@@ -10,6 +10,9 @@ export const site = {
   // Statewide. Out-of-state projects are considered case by case, so word that as an invitation
   // to ask, never a promise.
   serviceArea: "Utah",
+  // Home county, named in page titles for local search. Copy should make clear the work isn't
+  // limited to it.
+  county: "Utah County",
   license: {
     type: "Utah B100 General Contractor",
     // TODO: add the license number once provided. Shown in the footer when set.

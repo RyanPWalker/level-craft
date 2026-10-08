@@ -5,9 +5,9 @@ import { pageMetadata } from "../seo";
 
 const page = {
   path: "/home-renovation/",
-  title: "Home Remodeling & Additions in Utah",
+  title: "Home Remodeling & Additions in Utah County",
   description:
-    "Home remodels, additions, repairs, and improvements in Orem and across Utah, built by a licensed, insured Utah B100 general contractor.",
+    "Home remodels, additions, repairs, and improvements in Utah County and across Utah, built by a licensed, insured Utah B100 general contractor.",
 };
 
 export const metadata: Metadata = pageMetadata(page);

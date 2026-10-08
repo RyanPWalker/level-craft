@@ -5,9 +5,9 @@ import { pageMetadata } from "../seo";
 
 const page = {
   path: "/commercial/",
-  title: "Commercial Contractor in Utah",
+  title: "Commercial Contractor in Utah County",
   description:
-    "Tenant improvements, office build-outs, and commercial remodels in Orem and across Utah from a licensed, insured Utah B100 general contractor.",
+    "Tenant improvements, office build-outs, and commercial remodels in Utah County and across Utah from a licensed, insured Utah B100 general contractor.",
 };
 
 export const metadata: Metadata = pageMetadata(page);

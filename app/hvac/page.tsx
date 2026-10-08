@@ -5,9 +5,9 @@ import { pageMetadata } from "../seo";
 
 const page = {
   path: "/hvac/",
-  title: "HVAC for Remodels & Build-Outs in Utah",
+  title: "HVAC for Remodels & Build-Outs in Utah County",
   description:
-    "Heating and cooling for remodels, additions, and build-outs across Utah. We coordinate qualified HVAC, plumbing, and electrical trades on your project.",
+    "Heating and cooling for remodels, additions, and build-outs in Utah County and statewide. We coordinate qualified HVAC, plumbing, and electrical trades.",
 };
 
 export const metadata: Metadata = pageMetadata(page);
