@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
+import { readLeadSource, type LeadSource } from "./LeadSourceTracker";
 import { site } from "../site";
 
 type Status = "idle" | "sending" | "sent" | "error";
@@ -11,6 +12,9 @@ type Status = "idle" | "sending" | "sent" | "error";
  */
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
+  const [lead, setLead] = useState<LeadSource | null>(null);
+
+  useEffect(() => setLead(readLeadSource()), []);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -45,6 +49,9 @@ export default function ContactForm() {
   return (
     <form className="contact-form" action={site.formEndpoint} method="POST" onSubmit={handleSubmit}>
       <input type="hidden" name="_subject" value="New estimate request from the website" />
+      {/* How the visitor found the site, so the owner can see which marketing works. */}
+      {lead && <input type="hidden" name="source" value={lead.source} />}
+      {lead && <input type="hidden" name="landing_page" value={lead.landingPage} />}
       {/* Honeypot: hidden from people, filled in by bots, which Formspree then discards. */}
       <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" className="form-honeypot" aria-hidden="true" />
 

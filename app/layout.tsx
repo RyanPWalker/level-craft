@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Jersey_10, Silkscreen } from "next/font/google";
 import SiteFooter from "./components/SiteFooter";
+import LeadSourceTracker from "./components/LeadSourceTracker";
 import SiteHeader from "./components/SiteHeader";
 import { businessId, JsonLd, ogImage } from "./seo";
 import { servicePages, site } from "./site";
@@ -35,6 +36,8 @@ const businessJsonLd = {
   image: `${site.url}${ogImage.url}`,
   telephone: site.phone.href.replace("tel:", ""),
   founder: { "@type": "Person", name: site.owner },
+  // Profiles elsewhere that belong to the business. Add Google Business Profile, Facebook, etc.
+  sameAs: [site.instagram.url],
   address: {
     "@type": "PostalAddress",
     addressLocality: site.city,
@@ -74,6 +77,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${body.variable} ${display.variable} ${label.variable}`}>
       <body>
         <JsonLd data={businessJsonLd} />
+        <LeadSourceTracker />
         <SiteHeader />
         {children}
         <SiteFooter />

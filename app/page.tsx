@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ContactCTA from "./components/ContactCTA";
 import GrassStrip from "./components/GrassStrip";
+import PhotoCarousel from "./components/PhotoCarousel";
+import { getGalleryPhotos } from "./gallery";
 import PixelArt, { type Sprite } from "./components/PixelArt";
 import { houseScene, icons } from "./components/sprites";
 import { pageMetadata } from "./seo";
@@ -70,6 +72,7 @@ const values = [
 ];
 
 export default function Home() {
+  const photos = getGalleryPhotos();
   return (
     <main>
       <section className="hero">
@@ -94,6 +97,20 @@ export default function Home() {
         </div>
         <GrassStrip id="grass-hero" />
       </section>
+
+      {photos.length > 0 && (
+        <section id="projects" className="section section-alt">
+          <div className="container">
+            <p className="eyebrow">Recent Projects</p>
+            <h2>Fresh Off the Job Site</h2>
+            <PhotoCarousel photos={photos} label="Recent project photos" />
+            <p className="carousel-follow">
+              See more on Instagram:{" "}
+              <a href={site.instagram.url} rel="noopener">@{site.instagram.handle}</a>
+            </p>
+          </div>
+        </section>
+      )}
 
       <section id="services" className="section">
         <div className="container">

@@ -21,6 +21,7 @@ export default function SiteFooter() {
           ))}
           <Link href="/contact">Contact</Link>
           <a href={site.phone.href}>{site.phone.display}</a>
+          <a href={site.instagram.url} rel="noopener">Instagram</a>
         </nav>
       </div>
       <div className="container footer-legal">

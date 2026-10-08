@@ -288,6 +288,42 @@ svg { display: block; }
 .next-steps li + li { margin-top: 6px; }
 .contact-aside .hero-badge { color: var(--dark); }
 
+/* Project photo carousel */
+.carousel { position: relative; max-width: 880px; margin: 2rem auto 0; }
+.carousel-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  border: 3px solid var(--text);
+  box-shadow: 6px 6px 0 rgba(29, 35, 43, 0.12);
+  background: var(--dark);
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.carousel-slide { flex: 0 0 100%; margin: 0; scroll-snap-align: start; aspect-ratio: 16 / 9; }
+.carousel-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.carousel-controls { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 16px; }
+.carousel-btn {
+  width: 40px; height: 40px;
+  border: 3px solid var(--text);
+  background: var(--bg);
+  font-size: 1.6rem; line-height: 1;
+  cursor: pointer;
+}
+.carousel-btn:hover { background: var(--grass-light); }
+.carousel-dots { display: flex; gap: 8px; }
+.carousel-dot { width: 12px; height: 12px; padding: 0; border: 2px solid var(--text); background: var(--bg); cursor: pointer; }
+.carousel-dot[aria-current="true"] { background: var(--grass); border-color: var(--grass); }
+.carousel-follow { margin: 16px 0 0; text-align: center; color: var(--muted); }
+.carousel-follow a { color: var(--grass); font-weight: 600; }
+
+/* 404 */
+.not-found-hero .hero-inner { min-height: 68vh; align-items: center; }
+.not-found-hero .hero-copy { padding-bottom: 72px; }
+.not-found-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.not-found-other { margin-top: 24px; color: #cfd5dc; }
+.not-found-other a { color: var(--grass-light); font-weight: 600; }
+
 @media (max-width: 800px) {
   .hero-inner { grid-template-columns: 1fr; padding-top: 64px; }
   .hero-copy { padding-bottom: 0; }
@@ -296,6 +332,7 @@ svg { display: block; }
   .page-hero-art { max-width: 120px; margin-bottom: 32px; }
   .footer-inner { flex-direction: column; align-items: flex-start; }
   .contact-layout { grid-template-columns: 1fr; }
+  .carousel-slide { aspect-ratio: 4 / 3; }
 }
 
 @media (max-width: 600px) {

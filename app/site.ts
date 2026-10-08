@@ -22,6 +22,12 @@ export const site = {
     display: "(575) 749-2589",
     href: "tel:+15757492589",
   },
+  instagram: {
+    handle: "levelcraftconstruction",
+    url: "https://www.instagram.com/levelcraftconstruction/",
+  },
+  // Our other site (same business, different design). Linked only from the 404 page.
+  otherSiteUrl: "https://levelcraftconstruction.com",
   // Formspree form that receives contact-page submissions and forwards them to the owner's inbox.
   // There is deliberately no email address on the site, to keep it away from spam bots.
   formEndpoint: "https://formspree.io/f/xqpeqboo",

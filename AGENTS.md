@@ -19,13 +19,16 @@ There is no test suite or linter yet. `yarn build` (which type-checks) is the ve
 
 ## Layout
 
-- `app/site.ts`: business facts (legal name, owner, location, service area, home `county`, license, phone, Formspree endpoint) and the `servicePages` list that drives the nav and footer links
-- `app/layout.tsx`: root layout, default metadata (`metadataBase`, title template), and the business JSON-LD
+- `app/site.ts`: business facts (legal name, owner, location, service area, home `county`, license, phone, Instagram, the other site's URL, Formspree endpoint) and the `servicePages` list that drives the nav and footer links
+- `app/layout.tsx`: root layout, default metadata (`metadataBase`, title template), and the business JSON-LD. Its `sameAs` lists the business's profiles elsewhere (Instagram now; add Google Business Profile, Facebook, Houzz, etc. as they're created).
 - `app/seo.tsx`: SEO helpers. `pageMetadata()` builds each page's title, description, canonical URL, and Open Graph/Twitter tags. `JsonLd` renders structured data.
 - `app/sitemap.ts`, `app/robots.ts`: generate `sitemap.xml` and `robots.txt` at build time. The sitemap lists the home page, the contact page, and `servicePages`.
 - `app/og.png/route.tsx`: generates the social share image (`/og.png`) at build time
 - `app/contact/`: contact page with the estimate request form (`components/ContactForm.tsx`, a client component). The form posts to Formspree (`site.formEndpoint`); name and phone are required, email and message optional. The estimate buttons across the site link here.
-- `app/page.tsx`: the homepage. Content (services, process steps, values) lives in arrays at the top of the file.
+- `app/page.tsx`: the homepage. Content (services, process steps, values) lives in arrays at the top of the file. Right after the hero, a "Recent Projects" section shows `components/PhotoCarousel.tsx` (auto-advancing, pauses on hover/focus, no autoplay with reduced motion) when there are photos.
+- `public/gallery/`: project photos for the carousel. `app/gallery.ts` reads the folder at build time; files show in name order and alt text comes from the file name (`01-basement-family-room-orem.jpg` → "Basement family room orem"). No folder or no images means no carousel section. Resize photos to about 1600px wide before adding them.
+- `app/not-found.tsx`: the 404 page (exported as `404.html`). It links to the same path on the other site (`site.otherSiteUrl`, via `components/OtherSiteLink.tsx`). That's the only place the two sites link to each other.
+- `components/LeadSourceTracker.tsx` (rendered in the layout) remembers how a visitor arrived (a `utm_source` tag, a referring site, or "direct") in sessionStorage, and the contact form sends it as hidden `source` and `landing_page` fields, so Formspree emails show where each lead came from. QR codes and printed materials should use `?utm_source=...` links.
 - `app/home-renovation/`, `app/hvac/`, `app/commercial/`: service landing pages, to be built out further for SEO and targeting. Each currently renders the shared `ServicePage` template with its own content and `metadata`. A page defines a `page` object (path with trailing slash, title, description), passes it to `pageMetadata()` and `ServicePage`, which emits `Service` and `BreadcrumbList` JSON-LD. A page can diverge from the template when it needs to.
 - `app/components/SiteHeader.tsx`, `NavLinks.tsx` (client component, highlights the current page), `SiteFooter.tsx`, `ContactCTA.tsx`: shared across pages. The header and footer are rendered in `app/layout.tsx`.
 - `app/globals.css`: all styles. Plain CSS, with design tokens as custom properties on `:root`.
@@ -50,7 +53,7 @@ Forms must post to a third-party service or use `mailto:`. The site uses Formspr
 
 ### Domain
 
-The site is served from the root of the custom domain `levelcraft.co` (set by `public/CNAME`), so there is no `basePath`. Root-relative URLs (`/hvac/`, `url(/...)`) work as-is.
+The site is served from the root of the custom domain `levelcraft.co` (set by `public/CNAME`), so there is no `basePath`. This is the **main** site for SEO. The same business also runs `levelcraftconstruction.com` (repo `level-craft-professional`) with a different design. Root-relative URLs (`/hvac/`, `url(/...)`) work as-is.
 
 - Use `next/link` for internal page links.
 - Hash links (`#services`) are fine. `#contact` works on every page: content pages render `ContactCTA`, and the contact page puts it on the form section.
@@ -67,7 +70,7 @@ The owner named the company with his gamer kids in mind (think Minecraft), so th
 
 - Fonts: **Jersey 10** (`--font-display`) for h1/h2 and buttons; **Silkscreen** (`--font-label`) for the logo, eyebrows, and small uppercase badges; **Inter** (`--font-sans`) for everything else, including h3 and body copy. Don't put long text in pixel fonts. Silkscreen renders `&` poorly, so avoid it in eyebrows.
 - Avoid Pixelify Sans and similar fonts. Its "C" reads as "O" and its "5" as "S".
-- New pixel art goes in `sprites.ts` and renders with `<PixelArt>`. Don't use raster images. Keep icons around 12×12.
+- New pixel art goes in `sprites.ts` and renders with `<PixelArt>`. Keep icons around 12×12. The only raster images are real project photos in `public/gallery/`.
 - Gaming nods in use: hero scene (tower crane lowering a plank block, hard-hat worker on the roof of a pixel house), grass-block logo and dividers, beveled "menu" buttons, hard-offset card shadows, "Level N" process steps with XP bars. Add new ones sparingly.
 - Colors: dark navy (`--dark`), grass green (`--grass`, used for primary actions), gold (`--gold`) as a small highlight.
 
