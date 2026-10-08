@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     path: "/",
     title: homeTitle,
     description:
-      "Licensed and insured general contractor in Orem, Utah. Home remodels, additions, and commercial tenant improvements across Utah County. Call for a free estimate.",
+      "Licensed and insured general contractor in Orem, Utah. Home remodels, additions, and commercial tenant improvements across Utah. Call for a free estimate.",
   }),
   // Already includes the brand, so skip the "%s | Level Craft Construction" template.
   title: { absolute: homeTitle },
@@ -75,7 +75,7 @@ export default function Home() {
       <section className="hero">
         <div className="container hero-inner">
           <div className="hero-copy">
-            <p className="eyebrow">{site.city}, {site.state} · {site.serviceArea}</p>
+            <p className="eyebrow">Based in {site.city} · Serving all of {site.serviceArea}</p>
             <h1>Built level. Crafted to last.</h1>
             <p className="lead">
               Residential and commercial construction across {site.serviceArea}. From remodels

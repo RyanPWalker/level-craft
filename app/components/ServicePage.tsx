@@ -31,7 +31,7 @@ export default function ServicePage(props: ServicePageProps) {
     url,
     serviceType: props.offerings.map((o) => o.title),
     provider: { "@id": businessId },
-    areaServed: { "@type": "AdministrativeArea", name: `${site.serviceArea}, UT` },
+    areaServed: { "@type": "State", name: site.serviceArea },
   };
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",

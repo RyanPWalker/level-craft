@@ -58,7 +58,7 @@ export function GET() {
         <div style={{ display: "flex", flexDirection: "column", gap: 16, fontSize: 36 }}>
           <div>Remodels · Additions · Commercial Tenant Improvements</div>
           <div style={{ color: "#f0b43c" }}>
-            {`Licensed & insured · Serving ${site.serviceArea}`}
+            {`Licensed & insured · Serving all of ${site.serviceArea}`}
           </div>
         </div>
       </div>

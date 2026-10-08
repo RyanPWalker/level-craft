@@ -13,7 +13,6 @@ export default function ContactCTA({ title = "Ready to start your next build?" }
         <div className="contact-info">
           <Link href="/contact" className="btn">Request an Estimate</Link>
           <a href={site.phone.href} className="btn btn-ghost">{site.phone.display}</a>
-          <a href={`mailto:${site.email}`} className="btn btn-ghost">{site.email}</a>
         </div>
       </div>
     </section>

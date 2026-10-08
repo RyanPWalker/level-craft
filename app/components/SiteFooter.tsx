@@ -25,7 +25,7 @@ export default function SiteFooter() {
       </div>
       <div className="container footer-legal">
         <p>
-          {site.name} · {site.city}, {site.state} · Serving {site.serviceArea} and surrounding areas
+          {site.name} · {site.city}, {site.state} · Serving all of {site.serviceArea}
         </p>
         <p>
           Licensed &amp; insured {site.license.type}
