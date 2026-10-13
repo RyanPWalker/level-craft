@@ -44,7 +44,16 @@ export default function ContactPage() {
               schedule a site visit.
             </p>
           </div>
-          <PixelArt sprite={icons.house} className="page-hero-art" />
+          <figure className="hero-owner">
+            <img
+              src="/images/owner-joaquin-harris.webp"
+              alt={`${site.owner}, owner of ${site.name}`}
+              width={900}
+              height={1200}
+              decoding="async"
+            />
+            <figcaption>Talk with {site.owner}, owner</figcaption>
+          </figure>
         </div>
         <GrassStrip id="grass-hero" />
       </section>

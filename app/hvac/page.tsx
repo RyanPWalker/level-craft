@@ -22,6 +22,7 @@ export default function HvacPage() {
       title="Comfort, crafted."
       lead="Heating and cooling for your remodel, addition, or build-out. We coordinate qualified HVAC trades and manage the work as part of your project, with one schedule and one point of contact."
       icon={icons.snowflake}
+      heroPhoto={{ src: "/images/hard-hat-blueprints-tools.jpg", soft: true }}
       offeringsTitle="HVAC on Your Project"
       offerings={[
         { title: "Remodels & Additions", text: "New or extended heating and cooling for added and reworked spaces, planned in from the start." },

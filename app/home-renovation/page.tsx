@@ -20,6 +20,7 @@ export default function HomeRenovationPage() {
       title="Level up your home."
       lead="Remodels, additions, repairs, and improvements across Utah — planned carefully and built to last, so you can love the home you already have."
       icon={icons.hammer}
+      heroPhoto={{ src: "/images/tool-belt-level.webp" }}
       offeringsTitle="Renovations We Build"
       offerings={[
         { title: "Remodels", text: "Kitchens, bathrooms, basements, and whole rooms, managed as one project with one team." },

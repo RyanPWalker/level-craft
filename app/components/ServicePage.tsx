@@ -1,6 +1,7 @@
 import Link from "next/link";
 import ContactCTA from "./ContactCTA";
 import GrassStrip from "./GrassStrip";
+import { heroPhotoProps, type HeroPhoto } from "./heroPhoto";
 import PixelArt, { type Sprite } from "./PixelArt";
 import { icons } from "./sprites";
 import { businessId, JsonLd } from "../seo";
@@ -13,6 +14,7 @@ export type ServicePageProps = {
   title: string;
   lead: string;
   icon: Sprite;
+  heroPhoto?: HeroPhoto;
   offeringsTitle: string;
   offerings: { title: string; text: string }[];
   highlightsTitle: string;
@@ -49,7 +51,7 @@ export default function ServicePage(props: ServicePageProps) {
     <main>
       <JsonLd data={serviceJsonLd} />
       <JsonLd data={breadcrumbJsonLd} />
-      <section className="hero page-hero">
+      <section {...heroPhotoProps(props.heroPhoto, "hero page-hero")}>
         <div className="container hero-inner">
           <div className="hero-copy">
             <p className="eyebrow">{props.eyebrow}</p>

@@ -20,6 +20,7 @@ export default function CommercialPage() {
       title="Commercial builds, done level."
       lead="Tenant improvements, office build-outs, and remodels for businesses across Utah — managed carefully so you can open on time."
       icon={icons.building}
+      heroPhoto={{ src: "/images/crew-reviewing-blueprints.webp" }}
       offeringsTitle="Commercial Services"
       offerings={[
         { title: "Tenant Improvements", text: "Build-outs that turn shell space into a space ready for your business." },
