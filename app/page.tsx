@@ -156,13 +156,28 @@ export default function Home() {
 
       <section id="about" className="section">
         <div className="container">
-          <p className="eyebrow">About</p>
-          <h2>Why Level Craft</h2>
-          <p className="section-intro">
-            Level Craft is owned by {site.owner} and based in {site.city}, {site.state}. We
-            handle the whole job as your general contractor, from framing and drywall to tile,
-            concrete, and finish carpentry, and we coordinate the specialty trades.
-          </p>
+          <div className="about-intro">
+            <div>
+              <p className="eyebrow">About</p>
+              <h2>Why Level Craft</h2>
+              <p className="section-intro">
+                Level Craft is owned by {site.owner} and based in {site.city}, {site.state}. We
+                handle the whole job as your general contractor, from framing and drywall to tile,
+                concrete, and finish carpentry, and we coordinate the specialty trades.
+              </p>
+            </div>
+            <figure className="owner-photo">
+              <img
+                src="/images/owner-joaquin-harris.webp"
+                alt={`${site.owner}, owner of ${site.name}, reviewing plans in the shop`}
+                width={900}
+                height={1200}
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>{site.owner}, owner</figcaption>
+            </figure>
+          </div>
           <div className="grid grid-3">
             {values.map((v) => (
               <div key={v.title} className="value">

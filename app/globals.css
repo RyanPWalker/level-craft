@@ -288,6 +288,17 @@ svg { display: block; }
 .next-steps li + li { margin-top: 6px; }
 .contact-aside .hero-badge { color: var(--dark); }
 
+/* About: owner photo beside the intro */
+.about-intro { display: grid; grid-template-columns: 1fr 300px; gap: 48px; align-items: center; margin-bottom: 32px; }
+.owner-photo { margin: 0; }
+.owner-photo img {
+  display: block; width: 100%; height: auto;
+  aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%;
+  border: 3px solid var(--text);
+  box-shadow: 6px 6px 0 rgba(63, 122, 38, 0.3);
+}
+.owner-photo figcaption { margin-top: 12px; font-size: 0.9rem; font-weight: 600; color: var(--muted); }
+
 /* Project photo carousel */
 .carousel { position: relative; max-width: 880px; margin: 2rem auto 0; }
 .carousel-track {
@@ -332,6 +343,8 @@ svg { display: block; }
   .page-hero-art { max-width: 120px; margin-bottom: 32px; }
   .footer-inner { flex-direction: column; align-items: flex-start; }
   .contact-layout { grid-template-columns: 1fr; }
+  .about-intro { grid-template-columns: 1fr; gap: 24px; }
+  .owner-photo { max-width: 320px; }
   .carousel-slide { aspect-ratio: 4 / 3; }
 }
 

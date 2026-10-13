@@ -26,6 +26,7 @@ There is no test suite or linter yet. `yarn build` (which type-checks) is the ve
 - `app/og.png/route.tsx`: generates the social share image (`/og.png`) at build time
 - `app/contact/`: contact page with the estimate request form (`components/ContactForm.tsx`, a client component). The form posts to Formspree (`site.formEndpoint`); name and phone are required, email and message optional. The estimate buttons across the site link here.
 - `app/page.tsx`: the homepage. Content (services, process steps, values) lives in arrays at the top of the file. Right after the hero, a "Recent Projects" section shows `components/PhotoCarousel.tsx` (auto-advancing, pauses on hover/focus, no autoplay with reduced motion) when there are photos.
+- `public/images/`: other site images, placed by hand. `owner-joaquin-harris.webp` is in the About section. `logo-lcc.png` is the owner's logo, not yet used. The stock photos (`excavators.jpg`, `surveyor-level-tripod.jpg`, `tool-belt-hard-hat.jpg`) are unused; they're small, not Level Craft's work, and their licensing is unconfirmed, so don't present them as projects.
 - `public/gallery/`: project photos for the carousel. `app/gallery.ts` reads the folder at build time; files show in name order and alt text comes from the file name (`01-basement-family-room-orem.jpg` → "Basement family room orem"). No folder or no images means no carousel section. Resize photos to about 1600px wide before adding them.
 - `app/not-found.tsx`: the 404 page (exported as `404.html`). It links to the same path on the other site (`site.otherSiteUrl`, via `components/OtherSiteLink.tsx`). That's the only place the two sites link to each other.
 - `components/LeadSourceTracker.tsx` (rendered in the layout) remembers how a visitor arrived (a `utm_source` tag, a referring site, or "direct") in sessionStorage, and the contact form sends it as hidden `source` and `landing_page` fields, so Formspree emails show where each lead came from. QR codes and printed materials should use `?utm_source=...` links.
@@ -70,7 +71,7 @@ The owner named the company with his gamer kids in mind (think Minecraft), so th
 
 - Fonts: **Jersey 10** (`--font-display`) for h1/h2 and buttons; **Silkscreen** (`--font-label`) for the logo, eyebrows, and small uppercase badges; **Inter** (`--font-sans`) for everything else, including h3 and body copy. Don't put long text in pixel fonts. Silkscreen renders `&` poorly, so avoid it in eyebrows.
 - Avoid Pixelify Sans and similar fonts. Its "C" reads as "O" and its "5" as "S".
-- New pixel art goes in `sprites.ts` and renders with `<PixelArt>`. Keep icons around 12×12. The only raster images are real project photos in `public/gallery/`.
+- New pixel art goes in `sprites.ts` and renders with `<PixelArt>`. Keep icons around 12×12. Raster images live in `public/gallery/` (real project photos only) and `public/images/`.
 - Gaming nods in use: hero scene (tower crane lowering a plank block, hard-hat worker on the roof of a pixel house), grass-block logo and dividers, beveled "menu" buttons, hard-offset card shadows, "Level N" process steps with XP bars. Add new ones sparingly.
 - Colors: dark navy (`--dark`), grass green (`--grass`, used for primary actions), gold (`--gold`) as a small highlight.
 
